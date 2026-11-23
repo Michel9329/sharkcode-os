@@ -146,6 +146,7 @@ The thread through all 13 episodes: trust goes to artifacts, not to stories. Tha
 | [claude-code-guardrails](https://github.com/Michel9329/claude-code-guardrails) | The hooks described above, separated from client data. |
 | [humanizer-it](https://github.com/Michel9329/humanizer-it) | A Claude Code skill for Italian text that should not read as machine-written, with write, rewrite and audit modes. Italian first, English too. |
 | [gdpr-scanner](https://github.com/Michel9329/gdpr-scanner) | A Cloudflare Worker that opens a site in a headless browser and reports privacy and cookie policy links, the consent banner, Google Fonts loaded from the CDN, Google Consent Mode, and trackers that fire before consent. |
+| [pinna](https://github.com/Michel9329/pinna) | Visual feedback on websites: a reviewer clicks a point of a staging site and leaves a comment pinned there. Self-hosted on Cloudflare Workers, with D1 and R2. |
 | [image-review-portal](https://github.com/Michel9329/image-review-portal) | Image approval with versions, comments pinned to a point and a configurable number of sign-offs. |
 
 ## What is not public
