@@ -2,7 +2,7 @@
 
 # Sharkcode OS
 
-Sharkcode OS is the set of Claude Code agents, skills and hooks that runs [Sharkcode](https://sharkcodestudio.com), a small web studio that builds websites and online shops for small businesses in Italy.
+Sharkcode OS is the set of Claude Code agents, skills and hooks that runs [Sharkcode](https://sharkcodestudio.com), a small web studio that builds websites, online shops and custom web apps for small businesses in Italy, Spain and the United States.
 Built with Claude Code, designed and reviewed by [Michel Dimitri](https://github.com/Michel9329).
 
 This page explains how the system works. It contains no code: the code and the data it runs on are private, for the reasons given in [What is not public](#what-is-not-public).
@@ -73,7 +73,7 @@ Counts measured on 6 November 2026. The commands are listed under [How the numbe
 | Memory | One fact per file. Next to each full text (L2) sit a short abstract (L0) and an overview (L1). | 931 memory files, 1,264 indexed entries |
 | MCP servers | Two written for the workspace. One gives agents access to client briefs, other teams' output, pipeline status and the knowledge base, and lets them post to discussion threads. The other connects a local model through Ollama for embeddings, classification and summaries. | 2 (12 and 4 tools) |
 | Orchestrator | TypeScript that compiles contracts, proposals and brand books from HTML templates, validates agent output, and saves pipeline state so an interrupted run resumes from the last finished agent. | 26,141 lines in 74 files |
-| History | Commits since the first one on 24 March 2026. Most of them were made by Claude Code agents working under Michel's direction: 4,223 carry a Claude co-author line. | 5,661 |
+| History | Commits since the first one on 24 March 2026. | 5,661 |
 
 **How recall works.** On every prompt a hook runs a BM25 search over the abstracts and injects the most relevant ones into the context, capped at 3,000 tokens. The overview or the full file is loaded only when the task needs it, so a session gets the relevant notes without opening hundreds of files.
 
@@ -186,7 +186,6 @@ Run on the private workspace on 6 November 2026.
 | 2 MCP servers, 12 and 4 tools | `ls tools/mcp-servers`, then the tool registrations in each `index.ts` |
 | 26,141 lines, 74 files | `git ls-files tools/orchestrator \| grep '\.ts$' \| xargs cat \| wc -l` (22,307 without test files) |
 | 5,661 commits | `git rev-list --count HEAD`; first commit dated 2026-03-24 |
-| 4,223 with a Claude co-author | `git log --format="%H %(trailers:key=Co-Authored-By,valueonly,separator=;)" \| grep -ci "claude\|anthropic"` (one line per commit) |
 | 931 memory files, 1,264 entries | `research/INDEX.yaml`, entries counted by `scope` (memory, intel, research, skills, agents, commands, constitution) |
 | 3,000 token recall cap | `budget.max_tokens` in the retrieval config |
 | 24 / 8 / 13 effort settings | `grep -h '^effort:' .claude/agents/sharkcode-*.md \| sort \| uniq -c` |
